@@ -1,8 +1,45 @@
-﻿@{
+﻿@model List<project_donation.Models.donor.Donor>
+@{
     ViewData["Title"] = "Donors";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome klk </h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <h1 class="display-4 text-center mb-4">Lista of Donors </h1>
+
+    <a asp-controller="Donors" asp-action="Create" class="btn btn-primary mb-3">new Donor </a>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id_donor</td>
+                        <td>@item.name_donor</td>
+                        <td>@item.email_donor</td>
+                        <td>@item.phone_donor</td>
+                        <td>
+                            <a asp-controller="Donors" asp-action="Update" asp-route-id="@item.id_donor" class="btn btn-warning btn-sm">Actualizar</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">No se encontraron registros</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

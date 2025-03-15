@@ -1,0 +1,39 @@
+﻿@model project_donation.Models.donor.Donor
+@{
+    ViewData["Title"] = "Update Donor";
+}
+<form asp-action="Update">
+    <input type="hidden" asp-for="id_donor" />
+
+    <div class="form-group">
+        <label asp-for="name_donor" class="control-label"></label>
+        <input asp-for="name_donor" class="form-control" />
+        <span asp-validation-for="name_donor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="email_donor" class="control-label"></label>
+        <input asp-for="email_donor" class="form-control" />
+        <span asp-validation-for="email_donor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="phone_donor" class="control-label"></label>
+        <input asp-for="phone_donor" class="form-control" />
+        <span asp-validation-for="phone_donor" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
