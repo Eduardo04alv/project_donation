@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using project_donation.Models.donor;
+using project_donation.Models.Donor;
 
-namespace project_donation.context
+namespace project_donation.context.donor
 {
     public class donorContext : DbContext
     {

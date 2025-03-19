@@ -1,4 +1,4 @@
-﻿@model project_donation.Models.donor.Donor
+﻿@model project_donation.Models.Donor.Donor
 @{
     ViewData["Title"] = "Update Donor";
 }
@@ -22,14 +22,14 @@
         <input asp-for="phone_donor" class="form-control" />
         <span asp-validation-for="phone_donor" class="text-danger"></span>
     </div>
-
+    <h4>    </h4>
     <div class="form-group">
-        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <input type="submit" value="save" class="btn btn-primary" />
     </div>
 </form>
-
+<h4>    </h4>
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    <a asp-action="Index">Back to list</a>
 </div>
 
 @section Scripts {

@@ -1,4 +1,4 @@
-﻿@model project_donation.Models.donor.Donor
+﻿@model project_donation.Models.Donor.Donor
 @{
     ViewData["Title"] = "Add Donor";
 }
@@ -9,11 +9,7 @@
 
   <form asp-controller="Donors" asp-action="Create" method="post">
     <div class="row col-md-12">
-        <div class="form-group col-md-4">
-            <label asp-for="id_donor"></label>
-            <input asp-for="id_donor" class="form-control" />
-            <span asp-validation-for="id_donor" class="text-danger"></span>
-        </div>
+  
         <div class="form-group col-md-4">
             <label asp-for="name_donor"></label>
             <input asp-for="name_donor" class="form-control" />

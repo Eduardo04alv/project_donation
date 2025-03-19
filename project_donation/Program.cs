@@ -1,5 +1,6 @@
-using project_donation.context;
-using project_donation.services;
+using project_donation.context.beneficiaries;
+using project_donation.context.donor;
+using project_donation.services.donor;
 using Microsoft.EntityFrameworkCore;
 internal class Program
 {
@@ -12,6 +13,9 @@ internal class Program
 
         builder.Services.AddDbContext<donorContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
+
+        builder.Services.AddDbContext<beneficiariesContex>(_options =>
+            _options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
 
         builder.Services.AddTransient<DonationAdoService>();
         var app = builder.Build();

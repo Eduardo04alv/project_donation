@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using project_donation.context;
-using project_donation.Models.donor;
-using project_donation.services;
+using project_donation.context.donor;
+using project_donation.Models.Donor;
+using project_donation.services.donor;
 
 namespace project_donation.Controllers
 {
@@ -63,6 +63,29 @@ namespace project_donation.Controllers
             }
 
             return View(model);
+        }
+        public IActionResult Delete(int id)
+        {
+            var donor = _Context.donor.Find(id);
+            if (donor == null)
+            {
+                return NotFound();
+            }
+            return View(donor); 
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var donor = _Context.donor.Find(id);
+            if (donor == null)
+            {
+                return NotFound();
+            }
+            _Context.donor.Remove(donor);
+            _Context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

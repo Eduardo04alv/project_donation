@@ -1,4 +1,4 @@
-﻿@model List<project_donation.Models.donor.Donor>
+﻿@model List<project_donation.Models.Donor.Donor>
 @{
     ViewData["Title"] = "Donors";
 }
@@ -29,7 +29,8 @@
                         <td>@item.email_donor</td>
                         <td>@item.phone_donor</td>
                         <td>
-                            <a asp-controller="Donors" asp-action="Update" asp-route-id="@item.id_donor" class="btn btn-warning btn-sm">Actualizar</a>
+                            <a asp-controller="Donors" asp-action="Update" asp-route-id="@item.id_donor" class="btn btn-warning btn-sm">Updata</a>
+                            <a asp-controller="Donors" asp-action="Delete" asp-route-id="@item.id_donor" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                 }
@@ -37,7 +38,7 @@
             else
             {
                 <tr>
-                    <td colspan="5" class="text-center">No se encontraron registros</td>
+                    <td colspan="5" class="text-center">No records found</td>
                 </tr>
             }
         </tbody>

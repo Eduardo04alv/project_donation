@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace project_donation.Models.donor
+namespace project_donation.Models.Donor
 {
-
+    [Table("donor")]
     public class Donor
     {
         [Key]

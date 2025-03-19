@@ -1,6 +1,6 @@
-﻿using project_donation.Models.donor;
+﻿using project_donation.Models.Donor;
 using System.Data.SqlClient;
-namespace project_donation.services
+namespace project_donation.services.donor
 {
     public class DonationAdoService
     {
@@ -24,8 +24,8 @@ namespace project_donation.services
                 {
                     try
                     {
-                        var command = new SqlCommand(" insert into donor (id_donor, name_donor, email_donor , phone_donor )  values (@id_donor, @name_donor, @email_donor , @phone_donor )", connection);
-                        command.Parameters.AddWithValue("@id_donor", _donor.id_donor);
+                        var command = new SqlCommand(" insert into donor ( name_donor, email_donor , phone_donor )  values ( @name_donor, @email_donor , @phone_donor )", connection);
+                      
                         command.Parameters.AddWithValue(" @name_donor", _donor.name_donor);
                         command.Parameters.AddWithValue(" @email_donor", _donor.email_donor);
                         command.Parameters.AddWithValue("@phone_donor", _donor.phone_donor);

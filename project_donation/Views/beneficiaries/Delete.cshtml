@@ -1,0 +1,30 @@
+﻿@model project_donation.Models.Beneficiarie.Beneficiarie
+@{
+    ViewData["Title"] = "Delete Beneficiary";
+}
+
+<h3>¿Estás seguro de que quieres eliminar este beneficiario?</h3>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id_Benefi" />
+
+    <div class="form-group">
+        <label asp-for="name_Benefi" class="control-label">Nombre</label>
+        <input asp-for="name_Benefi" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="phone_Benefi" class="control-label">Teléfono</label>
+        <input asp-for="phone_Benefi" class="form-control" readonly />
+    </div>
+    <h4></h4>
+
+    <div class="form-group">
+        <input type="submit" value="Eliminar" class="btn btn-danger me-2" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+<h4></h4>
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
